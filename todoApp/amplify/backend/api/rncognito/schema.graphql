@@ -1,9 +1,0 @@
-type Party @model @auth(rules: [{allow: public}]) {
-  id: ID!
-  name: String!
-  image: String!
-  description: String!
-  qantbillet: Int!
-  price: Int!
-  products: Float!
-} 

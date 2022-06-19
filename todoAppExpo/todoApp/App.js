@@ -14,7 +14,9 @@ Amplify.configure(config);
 
 const AuthenticationStack = createStackNavigator();
 const AppStack = createStackNavigator();
+
 const AuthenticationNavigator = props => {
+
   return (
     <AuthenticationStack.Navigator headerMode="none">
       <AuthenticationStack.Screen name="SignIn">
@@ -22,7 +24,10 @@ const AuthenticationNavigator = props => {
           <SignIn {...screenProps} updateAuthState={props.updateAuthState} />
         )}
       </AuthenticationStack.Screen>
-      <AuthenticationStack.Screen name="SignUp" component={SignUp} />
+      <AuthenticationStack.Screen 
+          name="SignUp" 
+          component={SignUp} 
+        />
       <AuthenticationStack.Screen
         name="ConfirmSignUp"
         component={ConfirmSignUp}
@@ -30,12 +35,15 @@ const AuthenticationNavigator = props => {
     </AuthenticationStack.Navigator>
   );
 };
+
 const AppNavigator = props => {
   return (
     <AppStack.Navigator>
       <AppStack.Screen name="Home">
         {screenProps => (
-          <Home {...screenProps} updateAuthState={props.updateAuthState} />
+          <Home {...screenProps} 
+            updateAuthState={props.updateAuthState} 
+          />
         )}
       </AppStack.Screen>
     </AppStack.Navigator>
