@@ -11,6 +11,7 @@ export default function Home({ updateAuthState }) {
       console.log('Error signing out: ', error);
     }
   }
+
   return (
     <View style={styles.container}>
       <Text> 💙 + 💛</Text>
@@ -18,6 +19,7 @@ export default function Home({ updateAuthState }) {
     </View>
   );
 }
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
