@@ -19,18 +19,22 @@ const AuthenticationNavigator = props => {
 
   return (
     <AuthenticationStack.Navigator headerMode="none">
+
       <AuthenticationStack.Screen name="SignIn">
         {screenProps => (
-          <SignIn {...screenProps} updateAuthState={props.updateAuthState} />
+          <SignIn {...screenProps} 
+          updateAuthState={props.updateAuthState} 
+          />
         )}
       </AuthenticationStack.Screen>
+
       <AuthenticationStack.Screen 
           name="SignUp" 
           component={SignUp} 
         />
       <AuthenticationStack.Screen
-        name="ConfirmSignUp"
-        component={ConfirmSignUp}
+          name="ConfirmSignUp"
+          component={ConfirmSignUp}
       />
     </AuthenticationStack.Navigator>
   );
@@ -52,8 +56,15 @@ const AppNavigator = props => {
 
 const Initializing = () => {
   return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <ActivityIndicator size="large" color="tomato" />
+    <View style={{ 
+      flex: 1, 
+      justifyContent: 'center', 
+      alignItems: 'center' }}>
+
+      <ActivityIndicator 
+        size="large" 
+        color="tomato" 
+      />
     </View>
   );
 };
@@ -65,6 +76,7 @@ function App() {
   useEffect(() => {
     checkAuthState();
   }, []);
+
   async function checkAuthState() {
     try {
       await Auth.currentAuthenticatedUser();
@@ -78,13 +90,19 @@ function App() {
   {
     return (
       <NavigationContainer>
+
         {isUserLoggedIn === 'initializing' && <Initializing />}
         {isUserLoggedIn === 'loggedIn' && (
-          <AppNavigator updateAuthState={updateAuthState} />
+          <AppNavigator 
+            updateAuthState={updateAuthState} 
+          />
         )}
         {isUserLoggedIn === 'loggedOut' && (
-          <AuthenticationNavigator updateAuthState={updateAuthState} />
+          <AuthenticationNavigator 
+            updateAuthState={updateAuthState} 
+          />
         )}
+
       </NavigationContainer>
     );
   }
@@ -93,6 +111,7 @@ function App() {
   }
 
   async function signOut() {
+    
     try {
       await Auth.signOut();
     } catch (error) {

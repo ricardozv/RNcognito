@@ -1,6 +1,7 @@
 import React from 'react';
 import { View, Text, StyleSheet, Button } from 'react-native';
 import { Auth } from 'aws-amplify';
+
 export default function Home({ updateAuthState }) {
   async function signOut() {
     try {

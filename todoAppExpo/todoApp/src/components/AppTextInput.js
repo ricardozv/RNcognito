@@ -1,8 +1,11 @@
 import React from 'react';
 import { View, StyleSheet, TextInput } from 'react-native';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
+
 export default function AppTextInput({ leftIcon, ...otherProps }) {
+
   return (
+
     <View style={styles.container}>
       {leftIcon && (
         <MaterialCommunityIcons
@@ -20,10 +23,11 @@ export default function AppTextInput({ leftIcon, ...otherProps }) {
     </View>
   );
 }
+
 const styles = StyleSheet.create({
   container: {
     backgroundColor: '#f9f9f9',
-    borderRadius: 25,
+    borderRadius: 20,
     flexDirection: 'row',
     padding: 15,
     marginVertical: 10

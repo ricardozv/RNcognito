@@ -4,10 +4,14 @@ import { Auth } from 'aws-amplify';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import AppTextInput from '../components/AppTextInput';
 import AppButton from '../components/AppButton';
+
 export default function ConfirmSignUp({ navigation }) {
+
   const [username, setUsername] = useState('');
   const [authCode, setAuthCode] = useState('');
+
   async function confirmSignUp() {
+
     try {
       await Auth.confirmSignUp(username, authCode);
       console.log('✅ Code confirmed');
@@ -19,7 +23,9 @@ export default function ConfirmSignUp({ navigation }) {
       );
     }
   }
+
   return (
+
     <SafeAreaView style={styles.safeAreaContainer}>
       <View style={styles.container}>
         <Text style={styles.title}>Confirm Sign Up</Text>
@@ -39,7 +45,10 @@ export default function ConfirmSignUp({ navigation }) {
           placeholder="Enter verification code"
           keyboardType="numeric"
         />
-        <AppButton title="Confirm Sign Up" onPress={confirmSignUp} />
+        <AppButton 
+          title="Confirm Sign Up" 
+          onPress={confirmSignUp} 
+        />
       </View>
     </SafeAreaView>
   );
